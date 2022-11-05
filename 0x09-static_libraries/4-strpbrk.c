@@ -1,14 +1,24 @@
 #include "main.h"
+
 /**
- * _isalpha - function that check if it's a letter, lowercase or uppercase
- * @c: character to be passed
- * Return: always 0
+ * _strpbrk - search a string for any set of bytes
+ * @s: parameter
+ * @accept: parameter
+ * Return: 0
  */
 
-int _isalpha(int c)
+char *_strpbrk(char *s, char *accept)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (1);
-	else
-		return (0);
+	int i;
+
+	while (*s)
+	{
+		for (i = 0; accept[i]; i++)
+		{
+			if (*s == accept[i])
+				return (s);
+		}
+		s++;
+	}
+	return ('\0');
 }
